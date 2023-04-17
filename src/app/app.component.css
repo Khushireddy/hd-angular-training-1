@@ -1,0 +1,7 @@
+header {
+    font-size: 30px;
+    border: 1px solid black;
+    padding: 20px;
+    color: #fff;
+    background-image: linear-gradient(rgb(104, 104, 252),rgb(84, 170, 241));
+}

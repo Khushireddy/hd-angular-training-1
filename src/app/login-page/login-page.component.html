@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="content">
+    <div class="left">
+      <span>university Demo</span>
+    </div>
+    <div class="right">
+      <div class="username">
+        <mat-form-field class="example-full-width">
+          <mat-label>username</mat-label>
+          <input matInput placeholder="username" [(ngModel)]="username">
+        </mat-form-field>
+      </div>
+      <div class="button">
+        <div class="continue">
+          <button mat-raised-button color="primary" (click)="continue()">continue</button>
+        </div>
+        <div class="cancel">
+          <button mat-raised-button color="primary" (click)="reset()">cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

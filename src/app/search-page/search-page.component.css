@@ -1,0 +1,44 @@
+.container {
+    border: 1px solid black;
+    height: 100vh;
+}
+.logout {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    background-color: red;
+    color: #fff;
+}
+.search-page {
+    font-size: 20px;
+    text-align: right;
+}
+.state {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    padding: 10px;
+    color: red;
+    
+}
+
+.select-country {
+    width:200px;
+    height: 40px;
+    font-size: 20px;
+}
+.universities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    
+}
+table, th, td {
+    text-align: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}

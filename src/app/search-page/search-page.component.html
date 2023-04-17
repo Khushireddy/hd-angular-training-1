@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="search-page" >
+        <p>Welcome {{username}}!</p>
+    </div>
+    <div class="logout">
+        <button mat-raised-button color="primary" (click)="logout()">logout</button>
+
+    </div>
+    <br>
+    
+    <div class="state" *ngIf="countries && countries.length > 0">
+        <label>Select State</label>
+        <select class="select-country" (change)="onchangecountry()" [(ngModel)]="state"> 
+        <option  [ngValue]="null" disabled>Select Country</option>
+        <option *ngFor="let country of countries" [value]="country['state-province']">  
+            {{country['state-province']}}</option>     
+        </select>
+    </div>
+    
+    <div class="universities">
+        <table  *ngIf="universities && universities.length > 0">
+            <tr>
+                <th>Alpha Code</th>
+                <th>Country</th>
+                <th>University Name</th>
+                <th>Domain</th>
+                <th>Web Pages</th>
+            </tr>
+            <tr *ngFor="let u of universities">
+                <td>{{u.alpha_two_code}}</td>
+                <td>{{u.country}}</td>
+               <td>{{u.name}}</td>   
+               <td>{{u.domains}}</td>
+               <td>{{u.web_pages}}</td>
+            </tr>
+        </table>
+    </div>
+    
+</div>
