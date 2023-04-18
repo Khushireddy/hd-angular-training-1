@@ -9,9 +9,12 @@ import { ApiService } from '../api.service';
 })
 export class SearchPageComponent {
   username:any;
-  countries:any;
+  countries:any=[{}];
   universities:any;
   state:any;
+  country:any;
+  states:any=[{}];
+  showSpinner = false;
 
   constructor(private router: Router, private api:ApiService) {
     const str = localStorage.getItem('user');
@@ -22,10 +25,7 @@ export class SearchPageComponent {
     }else{
       this.router.navigate (['/login'])
     }
-    this.api.getcountries().subscribe(res=>{
-      console.log(res);
-      this.countries = res;
-    })
+    this.callCountries();
     
   }
 
@@ -33,9 +33,35 @@ export class SearchPageComponent {
     localStorage.removeItem('user');
     this.router.navigate (['/login'])
   }
-  onchangecountry(){
+  callCountries(){
+    this.showSpinner = true;
+    this.api.getcountries().subscribe((res)=>{
+      console.log(res);
+      this.showSpinner = false;
+      if(res){
+        this.countries = res;
+        if(this.countries && this.countries.length >0 ){
+          this.countries = this.countries.filter((v:any,i:any,a:any)=>a.findIndex((v2:any)=>(v2.country===v.country))===i)
+        }
+      }
+    })
     
-    this.api.getuniversities(this.state).subscribe(res=>{
+  }
+  onchangecountry(){
+    this.showSpinner = true;
+    this.api.getstates(this.country).subscribe(res=>{
+      console.log(res);
+      this.showSpinner = false;
+      if(res) {
+      this.states = res;
+      this.states = this.states.filter((v:any,i:any,a:any)=>a.findIndex(
+        (v2:any)=>(v2['state-province']===v['state-province']))===i);
+      }
+    })
+    
+  }
+  onchangestate(){
+    this.api.getuniversities(this.country,this.state).subscribe(res=>{
       console.log(res);
       this.universities = res;
     })

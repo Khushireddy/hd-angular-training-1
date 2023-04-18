@@ -10,6 +10,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MaterialExampleModule} from '../material.module';
 import { AuthGuard } from './services/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule,
+    AppRoutingModule, 
     MatNativeDateModule,
     MaterialExampleModule,
+    MatSlideToggleModule,
+    MatButtonModule
+
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

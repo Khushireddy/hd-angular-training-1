@@ -13,7 +13,18 @@
     font-size: 20px;
     text-align: right;
 }
-.state {
+table {
+    margin: 0 auto;
+}
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+}
+.country {
     display: flex;
     gap: 10px;
     justify-content: center;

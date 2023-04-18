@@ -7,15 +7,40 @@
 
     </div>
     <br>
-    
-    <div class="state" *ngIf="countries && countries.length > 0">
-        <label>Select State</label>
-        <select class="select-country" (change)="onchangecountry()" [(ngModel)]="state"> 
-        <option  [ngValue]="null" disabled>Select Country</option>
-        <option *ngFor="let country of countries" [value]="country['state-province']">  
-            {{country['state-province']}}</option>     
-        </select>
+    <div class="spinner" *ngIf="showSpinner">
+        <img src="assets/spinner.gif">
     </div>
+    <div>
+        <h3>University Search! World wide</h3>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div class="country" *ngIf="countries && countries.length > 0">
+                    <label>Select Country</label>
+                    <select class="select-country" (change)="onchangecountry()" [(ngModel)]="country"> 
+                    <option disabled>Select Country</option>
+                    <option *ngFor="let c of countries" [value]="c['country']">  
+                        {{c['country']}}</option>     
+                    </select>
+                </div>
+             
+            </td>
+            <td>
+                <div class="country" *ngIf="states && states.length > 0">
+                    <label>Select State</label>
+                    <select class="select-country" (change)="onchangestate()" [(ngModel)]="state"> 
+                    <option  disabled>Select State</option>
+                    <option *ngFor="let state of states" [value]="state['state-province']">  
+                        {{state['state-province']}}</option>     
+                    </select>
+                </div>
+            </td>
+            
+        </tr>
+    </table>
+    
+    
     
     <div class="universities">
         <table  *ngIf="universities && universities.length > 0">
