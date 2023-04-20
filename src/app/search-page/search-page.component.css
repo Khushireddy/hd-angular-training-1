@@ -3,9 +3,9 @@
     height: 100vh;
 }
 .logout {
-    position: fixed;
-    top: 25px;
-    right: 30px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
     background-color: red;
     color: #fff;
 }
@@ -24,7 +24,7 @@ table {
     z-index: 3;
     width: 100%;
 }
-.country {
+/* .country {
     display: flex;
     gap: 10px;
     justify-content: center;
@@ -33,7 +33,7 @@ table {
     padding: 10px;
     color: red;
     
-}
+} */
 
 .select-country {
     width:200px;

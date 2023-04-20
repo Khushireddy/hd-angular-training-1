@@ -20,11 +20,13 @@ export class LoginPageComponent {
   }
 
   continue(){
+    if(this.username.length > 0) {
     const obj ={name:this.username};
+
     localStorage.setItem('user', JSON.stringify(obj));
     console.log(obj);
     this.router.navigate (['/search'])
-
+    }
   }
   reset(){
     this.username = '';
