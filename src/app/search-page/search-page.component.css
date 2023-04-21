@@ -10,7 +10,7 @@
     color: #fff;
 }
 .search-page {
-    font-size: 20px;
+    font-size: 10px;
     text-align: right;
 }
 table {
@@ -29,27 +29,27 @@ table {
     gap: 10px;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px;
     color: red;
     
 } */
 
 .select-country {
-    width:200px;
-    height: 40px;
-    font-size: 20px;
+    width:150px;
+    height: 30px;
+    font-size: 10px;
 }
 .universities {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 5px;
     
 }
 table, th, td {
     text-align: left;
     
     border-collapse: collapse;
-    padding: 10px;
+    padding: 5px;
 }
