@@ -20,7 +20,7 @@ export class ApiService {
   }
 
   getuniversities(country:any, state:any) {
-    return this.http.get(`http://universities.hipolabs.com/search?country=${country}&name=${state}`);
+    return this.http.get<(any[])>(`http://universities.hipolabs.com/search?country=${country}&name=${state}`);
   }
 
 }

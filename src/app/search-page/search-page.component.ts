@@ -4,6 +4,7 @@ import { ApiService } from '../api.service';
 import {AfterViewInit,  ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
   alpha_two_code: string;
@@ -37,7 +38,7 @@ export class SearchPageComponent  implements AfterViewInit {
   @ViewChild(MatSort) sort: MatSort | undefined;
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
   }
 
   constructor(private router: Router, private api:ApiService) {
@@ -93,9 +94,10 @@ export class SearchPageComponent  implements AfterViewInit {
     })
   }
   onchangestate(){
-    this.api.getuniversities(this.country,this.state).subscribe(res=>{
+    this.api.getuniversities(this.country,this.state).subscribe((res:any[])=>{
       console.log(res);
-      this.dataSource = res;
+      if(res && res.length > 0)
+      this.dataSource = new MatTableDataSource<any>(res);
       setTimeout(() => this.dataSource.paginator = this.paginator);
       this.CounterValue++;
       localStorage.setItem('CounterValue', this.CounterValue.toString());
