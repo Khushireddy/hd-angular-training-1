@@ -7,24 +7,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  username:any;
-  userObject:any;
+  username:string = '';
+  userObject:Object = {};
   constructor(private router: Router) {
+
     const str = localStorage.getItem('user');
-    console.log(str);
+    
     if(str!=null) {
-     this.userObject = JSON.parse(str);
+    this.userObject = JSON.parse(str);
     
     }
 
   }
 
   continue(){
-    if(this.username.length > 0) {
+    if(!this.username){
+      alert("please provide the username to continue.")
+      return;
+    }
+
+    if(this.username && this.username.length > 0) {
     const obj ={name:this.username};
 
     localStorage.setItem('user', JSON.stringify(obj));
-    console.log(obj);
+    
     this.router.navigate (['/search'])
     }
   }

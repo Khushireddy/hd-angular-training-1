@@ -25,8 +25,8 @@ export class SearchPageComponent  implements AfterViewInit {
   countries:any=[];
   universities:any;
   state:any;
-  country:any;
-  states:any=[{}];
+  country:any = 'Select Country';
+  states:any=[];
   showSpinner = false;
   CounterValue=0
 
@@ -88,8 +88,13 @@ export class SearchPageComponent  implements AfterViewInit {
       this.states = res;
       this.states = this.states.filter((v:any,i:any,a:any)=>a.findIndex(
         (v2:any)=>(v2['state-province']===v['state-province']))===i );
-        this.CounterValue++;
-        localStorage.setItem('CounterValue', this.CounterValue.toString());
+        
+      if(res)
+      this.dataSource = new MatTableDataSource<any>(this.states);
+      setTimeout(() => this.dataSource.paginator = this.paginator);
+      this.CounterValue++;
+      localStorage.setItem('CounterValue', this.CounterValue.toString());
+       
       }
     })
   }

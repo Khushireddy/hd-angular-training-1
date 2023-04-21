@@ -9,8 +9,7 @@
         <button mat-raised-button color="primary" (click)="logout()">logout</button>
 
     </div>
-    {{country}}
-    <br>
+    
     <div>
         <h3>University Search! World wide</h3>
     </div>
@@ -29,6 +28,8 @@
                        
                     </select>
                 </div>
+                </td>
+                <td>
                 <div class="country" *ngIf="showOthers">
                     <!-- <label>Select Country</label>
                     <select class="select-country" (change)="onchangecountry()" [(ngModel)]="country">
@@ -45,14 +46,10 @@
 
             </td>
             <td>
-                <div class="country">
-                    <label>Select State</label>
-                    <select class="select-country" (change)="onchangestate()" [(ngModel)]="state">
-                        <option disabled>Select State</option>
-                        <option *ngFor="let state of states" [value]="state['state-province']">
-                            {{state['state-province']}}</option>
-                    </select>
-                </div>
+                <div class="continue">
+                    <button mat-raised-button color="primary" (click)="getAllStates()">Search</button>
+                
+                  </div>
             </td>
 
         </tr>
@@ -118,7 +115,10 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+            
         </table>
+        <div *ngIf="!dataSource || (dataSource && dataSource.data.length == 0)" style="text-align: center;">No Uversities found</div>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
             aria-label="Select page of periodic elements">
         </mat-paginator>
