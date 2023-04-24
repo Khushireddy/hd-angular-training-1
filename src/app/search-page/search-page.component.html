@@ -1,7 +1,7 @@
 <div class="container">
     <div class="search-page">
         <p>Welcome {{username}}!</p>
-    <div>
+    <div class="count">
         <h4>Number of Searches: {{ CounterValue }}</h4>
     </div>
     </div>
@@ -107,7 +107,6 @@
                 <th mat-header-cell *matHeaderCellDef> Domain </th>
                 <td mat-cell *matCellDef="let element"> {{element.domains}} </td>
             </ng-container>
-
             <ng-container matColumnDef="web_pages">
                 <th mat-header-cell *matHeaderCellDef> Web Pages </th>
                 <td mat-cell *matCellDef="let element"> {{element.web_pages}} </td>
@@ -118,7 +117,7 @@
             
             
         </table>
-        <div *ngIf="!dataSource || (dataSource && dataSource.data.length == 0)" style="text-align: center;">No Uversities found</div>
+        <div *ngIf="!dataSource || (dataSource && dataSource.data.length == 0)" style="text-align: center; color: darkblue;">No Uversities found</div>
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
             aria-label="Select page of periodic elements">
         </mat-paginator>

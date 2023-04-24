@@ -4,25 +4,22 @@
 }
 .logout {
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 25px;
     background-color: red;
     color: #fff;
 }
 .search-page {
     font-size: 10px;
-    text-align: right;
+    text-align: center;
+    font-size: large;
+    padding: 10px;
+}
+.count {
+    float: right;
 }
 table {
     margin: 0 auto;
-}
-.spinner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 3;
-    width: 100%;
 }
 /* .country {
     display: flex;
@@ -39,6 +36,8 @@ table {
     width:150px;
     height: 30px;
     font-size: 10px;
+    background-color: yellow;
+    text-emphasis-style: initial;
 }
 .universities {
     display: flex;
