@@ -86,8 +86,8 @@ export class SearchPageComponent  implements AfterViewInit {
       this.showSpinner = false;
       if(res) {
       this.states = res;
-      this.states = this.states.filter((v:any,i:any,a:any)=>a.findIndex(
-        (v2:any)=>(v2['state-province']===v['state-province']))===i );
+      // this.states = this.states.filter((v:any,i:any,a:any)=>a.findIndex(
+      //   (v2:any)=>(v2['state-province']===v['state-province']))===i );
         
       if(res)
       this.dataSource = new MatTableDataSource<any>(this.states);

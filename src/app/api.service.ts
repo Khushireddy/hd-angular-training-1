@@ -11,7 +11,7 @@ export class ApiService {
     
   }
   
-  getcountries() {
+  getcountries(): Observable<Object> {
     return this.http.get('http://universities.hipolabs.com/search');
   }
 
